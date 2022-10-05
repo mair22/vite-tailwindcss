@@ -1,4 +1,5 @@
-import { BiHomeAlt, BiInfoCircle, BiMoviePlay } from "react-icons/bi";
+import { useState } from "react";
+import { BiHomeAlt, BiInfoCircle, BiMenu, BiMoviePlay } from "react-icons/bi";
 import NavItem from "./NavItem";
 
 const defaultIconSize = "1.875rem";
@@ -17,15 +18,23 @@ const NavItemsContainer = () => (
 );
 
 const Index = () => {
+  const [isNavMenuMobileOpen, setisNavMenuMobileOpen] = useState(false);
   return (
     <nav className="col-span-1 bg-cyan-200">
-      <div className="mx-4 justify-between items-center">
+      <div className="mx-4 justify-between items-center md:block">
         <h4 className="uppercase font-bold text-primary py-4 border-b border-primary text-right">
           Movie
         </h4>
+        <BiMenu
+          className="cursor-pointer md:hidden"
+          size={defaultIconSize}
+          onClick={() => setisNavMenuMobileOpen(!isNavMenuMobileOpen)}
+        />
       </div>
 
-      <ul className="mx-4 my-2">
+      <ul
+        className={`mx-4 my-2${isNavMenuMobileOpen ? "" : " hidden"} md:block`}
+      >
         <NavItemsContainer />
       </ul>
     </nav>
