@@ -1,9 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import "./App.css";
+import Nav from "./components/Nav";
+import AuthButtons from "./components/AuthButtons";
+import Header from "./components/Header";
+import List from "./components/List";
 
 function App() {
-  return <h1 className='text-center text-pink-400'>Hello World</h1>
+  return (
+    <div className="grid grid-cols-5">
+      <Nav />
+      <main className="px-12 py-6 col-span-4 bg-cyan-50">
+        <AuthButtons />
+        <Header />
+        <List />
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;
